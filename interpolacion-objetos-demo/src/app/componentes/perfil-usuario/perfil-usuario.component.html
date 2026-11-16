@@ -1,0 +1,51 @@
+<!-- src/app/componentes/perfil-usuario/perfil-usuario.component.html -->
+<div class="panel-container">
+  <h1>Demostración Práctica: Interpolación de Objetos en Angular</h1>
+
+  <!-- 1. Notación por Punto y Pipes en Objetos -->
+  <section class="card">
+    <h2>1. Interpolación Básica y Anidada</h2>
+    <p><strong>ID:</strong> {{ usuario.id }}</p>
+    <p><strong>Nombre (uppercase):</strong> {{ usuario.nombreCompleto | uppercase }}</p>
+    <p><strong>Ciudad:</strong> {{ usuario.ubicacion.ciudad }} ({{ usuario.ubicacion.pais }})</p>
+    <p><strong>Calle Anidada:</strong> {{ usuario.ubicacion.direccionAnidada?.calle }} #{{ usuario.ubicacion.direccionAnidada?.numero }}</p>
+    <p><strong>Sueldo Formateado:</strong> {{ usuario.salarioEstimado | currency:'EUR' }}</p>
+    <p><strong>Fecha Registro:</strong> {{ usuario.fechaRegistro | date:'longDate' }}</p>
+  </section>
+
+  <!-- 2. Nullish Coalescing (??) y Ternarios en Objetos -->
+  <section class="card">
+    <h2>2. Fallbacks (??) y Operador Ternario</h2>
+    <p><strong>Teléfono:</strong> {{ usuario.telefono ?? 'Sin número telefónico registrado' }}</p>
+    <p><strong>Red Social (Twitter):</strong> {{ usuario.redesSociales?.twitter ?? 'Twitter no vinculado' }}</p>
+    <p><strong>Estado de Cuenta:</strong> {{ usuario.activo ? 'Cuenta Verificada y Activa' : 'Cuenta Inactiva' }}</p>
+  </section>
+
+  <!-- 3. Safe Navigation Operator (?.) en Objetos Asíncronos -->
+  <section class="card">
+    <h2>3. Safe Navigation Operator (?.) con Carga Asíncrona</h2>
+    <button (click)="cargarDatosHTTP()" class="btn">Simular Petición HTTP API</button>
+
+    <div class="async-box">
+      <!-- Si usuarioAsincrono es null, no colapsa gracias a ?. -->
+      <p><strong>ID API:</strong> {{ usuarioAsincrono?.id ?? 'Cargando datos...' }}</p>
+      <p><strong>Nombre API:</strong> {{ usuarioAsincrono?.nombreCompleto ?? 'Esperando...' }}</p>
+      <p><strong>País API:</strong> {{ usuarioAsincrono?.ubicacion?.pais ?? 'N/D' }}</p>
+    </div>
+  </section>
+
+  <!-- 4. Interpolación de Objects Signals (Angular Moderno) -->
+  <section class="card">
+    <h2>4. Interpolación de Object Signals ()</h2>
+    <p><strong>Nombre desde Signal:</strong> {{ usuarioSignal().nombreCompleto }}</p>
+    <p><strong>Correo desde Signal:</strong> {{ usuarioSignal().correo }}</p>
+    <p><strong>Ciudad desde Signal:</strong> {{ usuarioSignal().ubicacion.ciudad }}</p>
+  </section>
+
+  <!-- 5. Depuración de Objetos con JsonPipe -->
+  <section class="card debug-card">
+    <h2>5. Depuración de Objeto Completo (JsonPipe)</h2>
+    <p>Visualización estructurada en JSON del objeto completo:</p>
+    <pre>{{ usuario | json }}</pre>
+  </section>
+</div>

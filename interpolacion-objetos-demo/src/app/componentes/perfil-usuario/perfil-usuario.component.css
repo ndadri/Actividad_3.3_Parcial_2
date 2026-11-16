@@ -1,0 +1,60 @@
+/* src/app/componentes/perfil-usuario/perfil-usuario.component.css */
+.panel-container {
+  max-width: 900px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  color: #0f172a;
+}
+
+h1 {
+  color: #dd0031;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.card {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  color: #8b5cf6;
+  font-size: 18px;
+  margin-top: 0;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 8px;
+}
+
+.btn {
+  background: #dd0031;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #b90028;
+}
+
+.async-box {
+  margin-top: 12px;
+  padding: 10px;
+  background: #e2e8f0;
+  border-radius: 6px;
+}
+
+.debug-card pre {
+  background: #0f172a;
+  color: #38bdf8;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: Consolas, monospace;
+}
